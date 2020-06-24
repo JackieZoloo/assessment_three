@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Wish List</h1>
+    {% if not wishes %}
+    <h3>No Items Exist</h3>
+    {% else %}
+  
+    <table>
+        <tr>
+            <th>Description</th>
+            <th>Delete</th>
+        </tr>
+        {% for wish in wishes %} 
+        <tr>
+            <th>{{ wish.wish_list }}</th>
+            <th><a href="{% url 'delete' wish.id %}">X</a></th>
+        </tr>
+        {% endfor %}
+    </table>
+   
+
+ 
+   {% endif %}
+   <a href="{% url 'wish_create_form' %}">Add Wish</a></button>
+
+
+</body>
+</html>
